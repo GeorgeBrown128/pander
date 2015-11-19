@@ -7,15 +7,17 @@ else
     exit
 fi
 
+echo [ $(date +%H:%M:%S) ] pander started.
+
 # Lastmod 0 so we always render when started.
 lastmod=0
 
 # Get temp files for building.
 source=$(tempfile)
+# Pandoc will only generate a PDF when given a pdf output file.
 dest=$(tempfile --suffix .pdf )
 
-echo SRC: ${source}
-echo DST: ${dest}
+echo [ $(date +%H:%M:%S) ] Local PDF is ${dest}
 
 while true; do
     # Get the last modifcation of the file.
